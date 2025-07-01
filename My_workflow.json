@@ -1,0 +1,628 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "hour": 16
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1h8mdl4bYUv4XmndVSdnM8d_IljHNB0titYxYLB_eIWY",
+          "mode": "list",
+          "cachedResultName": "Raw Data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1h8mdl4bYUv4XmndVSdnM8d_IljHNB0titYxYLB_eIWY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1h8mdl4bYUv4XmndVSdnM8d_IljHNB0titYxYLB_eIWY/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "90d35ec0-9760-4254-9cba-ae803814e8f7",
+      "name": "Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "DfV40BIUuTCMXLZE",
+          "name": "Google Sheets Trigger account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1h8mdl4bYUv4XmndVSdnM8d_IljHNB0titYxYLB_eIWY",
+          "mode": "list",
+          "cachedResultName": "Raw Data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1h8mdl4bYUv4XmndVSdnM8d_IljHNB0titYxYLB_eIWY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1h8mdl4bYUv4XmndVSdnM8d_IljHNB0titYxYLB_eIWY/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "status": "Processing",
+            "website_url": "={{ $json.website_url }}"
+          },
+          "matchingColumns": [
+            "website_url"
+          ],
+          "schema": [
+            {
+              "id": "website_url",
+              "displayName": "website_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "business_email",
+              "displayName": "business_email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "business_name",
+              "displayName": "business_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "sent_date",
+              "displayName": "sent_date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email_subject",
+              "displayName": "email_subject",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "key_recommendations",
+              "displayName": "key_recommendations",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "lead_score",
+              "displayName": "lead_score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "error_message",
+              "displayName": "error_message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email_body",
+              "displayName": "email_body",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        440,
+        0
+      ],
+      "id": "dfda2e25-ad13-45df-92ff-85f520693b2b",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "qWUho5HjIz9We80a",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "specifyHeaders": "json",
+        "jsonHeaders": "{\n  \"Content-Type\": \"application/json\",\n  \"x-goog-api-key\": \"AIzaSyCAqsj1RSJqvulgtSS8-eAQyO17WdDx2iI\"\n}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"You are a professional web developer and UI/UX designer specializing in creating modern, high-performance custom websites. Write a persuasive email offering website development and revamp services.\\n\\nWebsite: {{ $('Filter').item.json.website_url }}\\nBusiness: {{ $('Filter').item.json.business_name }}\\nKey Issues Found: {{ $('Generate Recommendations').item.json.priority_issues.join(', ') }}\\nAll Issues: {{ $('Generate Recommendations').item.json.issues.join(', ') }}\\nRecommendations: {{ $('Generate Recommendations').item.json.recommendations.slice(0, 4).join(', ') }}\\nPotential Benefits: {{ $('Generate Recommendations').item.json.benefits.slice(0, 3).join(', ') }}\\nLead Score: {{ $('Generate Recommendations').item.json.lead_score }}/100\\n\\nWrite a 300-word professional email body that:\\n1. Introduces yourself as a web developer who creates modern, custom websites with focus on both functionality and visual appeal\\n2. Mentions specific technical AND visual issues found on their current website\\n3. Address visual concerns like:\\n   - Outdated design that doesn't reflect modern web standards\\n   - Poor visual hierarchy and user experience\\n   - Non-responsive design affecting mobile users\\n   - Inconsistent branding and color schemes\\n   - Cluttered layouts reducing user engagement\\n   - Lack of professional imagery and visual elements\\n4. Explain how a modern website revamp can boost their business through:\\n   - Contemporary visual design that builds trust\\n   - Improved user experience and navigation\\n   - Mobile-first responsive design\\n   - Faster loading times and better performance\\n   - Enhanced conversion optimization\\n5. Highlight specific benefits based on their issues\\n6. Use a consultative, professional tone that matches the lead score\\n7. Add the thing that you will be helping with at the end, first let them know the issues that their online presence is facing. DO NOT include any of your contact details, signatures, personal names, or closing statements\\n8. DO NOT include subject lines\\n9. Focus only on the main email body content\\n10. Emphasize modern web design trends and connect visual improvements to business outcomes and at the end do not add multiple line gapping a single line gap will work wherever needed\"\n        }\n      ]\n    }\n  ],\n  \"generationConfig\": {\n    \"temperature\": 0.7,\n    \"maxOutputTokens\": 800\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        240
+      ],
+      "id": "f6e15352-e071-446f-9a15-c5550dc054bb",
+      "name": "Gemini Email Genetation",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "JTo3S9LirTEHQeVc",
+          "name": "Header Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Get the HTML content from the current item\nconst html = $json.data;\nconst websiteUrl = $json.website_url;\n\n// Simple HTML parsing without external libraries\nfunction extractBetween(str, start, end) {\n  const startIndex = str.toLowerCase().indexOf(start.toLowerCase());\n  if (startIndex === -1) return '';\n  const endIndex = str.toLowerCase().indexOf(end.toLowerCase(), startIndex + start.length);\n  if (endIndex === -1) return '';\n  return str.substring(startIndex + start.length, endIndex).trim();\n}\n\nfunction countOccurrences(str, substring) {\n  return (str.toLowerCase().match(new RegExp(substring.toLowerCase(), 'g')) || []).length;\n}\n\n// Extract basic information\nconst title = extractBetween(html, '<title>', '</title>') || 'No title found';\n\n// Extract meta description\nconst descriptionMatch = html.toLowerCase().match(/<meta\\s+name=['\"]description['\"][^>]*content=['\"]([^'\"]*)['\"]/);\nconst description = descriptionMatch ? descriptionMatch[1] : '';\n\n// Check for modern features\nconst hasResponsiveDesign = html.toLowerCase().includes('viewport') && html.toLowerCase().includes('width=device-width');\nconst hasSSL = websiteUrl && typeof websiteUrl === 'string' ? websiteUrl.startsWith('https://') : false;\nconst hasAnalytics = html.toLowerCase().includes('google-analytics') || html.toLowerCase().includes('gtag') || html.toLowerCase().includes('ga(');\nconst hasLiveChat = html.toLowerCase().includes('chat') || html.toLowerCase().includes('messenger') || html.toLowerCase().includes('intercom');\nconst hasSEO = html.toLowerCase().includes('og:title') || html.toLowerCase().includes('twitter:title');\nconst hasContactForm = html.toLowerCase().includes('<form') && (html.toLowerCase().includes('contact') || html.toLowerCase().includes('email'));\n\n// Performance indicators\nconst imageCount = countOccurrences(html, '<img');\nconst scriptCount = countOccurrences(html, '<script');\nconst cssCount = countOccurrences(html, '<link') + countOccurrences(html, '<style');\n\n// Check for modern frameworks/libraries\nconst hasJQuery = html.toLowerCase().includes('jquery');\nconst hasBootstrap = html.toLowerCase().includes('bootstrap');\nconst hasReact = html.toLowerCase().includes('react') || html.toLowerCase().includes('_react');\nconst hasVue = html.toLowerCase().includes('vue.js') || html.toLowerCase().includes('vue.min.js');\n\n// Extract some headings\nconst h1Matches = html.match(/<h1[^>]*>(.*?)<\\/h1>/gi) || [];\nconst headings = h1Matches.slice(0, 3).map(h => h.replace(/<[^>]*>/g, '').trim());\n\n// Check for accessibility features\nconst hasAltTags = html.toLowerCase().includes('alt=');\nconst hasAriaLabels = html.toLowerCase().includes('aria-label');\n\n// Check for social media links\nconst hasFacebook = html.toLowerCase().includes('facebook.com');\nconst hasTwitter = html.toLowerCase().includes('twitter.com') || html.toLowerCase().includes('x.com');\nconst hasLinkedIn = html.toLowerCase().includes('linkedin.com');\nconst hasInstagram = html.toLowerCase().includes('instagram.com');\n\nreturn {\n  website_info: {\n    title: title,\n    description: description,\n    headings: headings,\n    url: websiteUrl,\n    features: {\n      hasResponsiveDesign: hasResponsiveDesign,\n      hasSSL: hasSSL,\n      hasAnalytics: hasAnalytics,\n      hasLiveChat: hasLiveChat,\n      hasSEO: hasSEO,\n      hasContactForm: hasContactForm,\n      hasAltTags: hasAltTags,\n      hasAriaLabels: hasAriaLabels\n    },\n    technology: {\n      hasJQuery: hasJQuery,\n      hasBootstrap: hasBootstrap,\n      hasReact: hasReact,\n      hasVue: hasVue\n    },\n    performance: {\n      imageCount: imageCount,\n      scriptCount: scriptCount,\n      cssCount: cssCount\n    },\n    social: {\n      hasFacebook: hasFacebook,\n      hasTwitter: hasTwitter,\n      hasLinkedIn: hasLinkedIn,\n      hasInstagram: hasInstagram\n    }\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        860,
+        0
+      ],
+      "id": "8af7a672-7d97-4899-b927-e99bdb5840a5",
+      "name": "Website Analysis",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const websiteInfo = $json.website_info;\nconst recommendations = [];\nconst benefits = [];\nconst issues = [];\n\n// Analyze and generate recommendations\nif (!websiteInfo.features.hasResponsiveDesign) {\n  recommendations.push(\"Implement mobile-responsive design\");\n  benefits.push(\"Increase mobile traffic by 40-60%\");\n  issues.push(\"Not mobile-friendly\");\n}\n\nif (!websiteInfo.features.hasSSL) {\n  recommendations.push(\"Add SSL certificate for security\");\n  benefits.push(\"Improve SEO ranking and user trust\");\n  issues.push(\"No SSL security\");\n}\n\nif (!websiteInfo.features.hasAnalytics) {\n  recommendations.push(\"Install Google Analytics for tracking\");\n  benefits.push(\"Track visitor behavior and optimize conversions\");\n  issues.push(\"No analytics tracking\");\n}\n\nif (!websiteInfo.features.hasSEO) {\n  recommendations.push(\"Optimize SEO with meta tags and structured data\");\n  benefits.push(\"Increase organic search traffic by 25-50%\");\n  issues.push(\"Poor SEO optimization\");\n}\n\nif (websiteInfo.performance.imageCount > 15) {\n  recommendations.push(\"Optimize images for faster loading\");\n  benefits.push(\"Reduce page load time by 30-50%\");\n  issues.push(\"Too many unoptimized images\");\n}\n\nif (!websiteInfo.features.hasLiveChat) {\n  recommendations.push(\"Add live chat for customer support\");\n  benefits.push(\"Increase conversion rates by 20-30%\");\n  issues.push(\"No live chat support\");\n}\n\nif (!websiteInfo.features.hasContactForm) {\n  recommendations.push(\"Add professional contact forms\");\n  benefits.push(\"Improve lead generation and user engagement\");\n  issues.push(\"No contact forms\");\n}\n\n// Always suggest modern improvements\nrecommendations.push(\"Modern UI/UX design with contemporary aesthetics\");\nbenefits.push(\"Reduce bounce rate and increase user engagement\");\n\nrecommendations.push(\"Content Management System for easy updates\");\nbenefits.push(\"Save time and reduce maintenance costs\");\n\n// Calculate lead score\nlet leadScore = 0;\nif (!websiteInfo.features.hasResponsiveDesign) leadScore += 25;\nif (!websiteInfo.features.hasSSL) leadScore += 20;\nif (!websiteInfo.features.hasAnalytics) leadScore += 15;\nif (!websiteInfo.features.hasSEO) leadScore += 20;\nif (!websiteInfo.features.hasLiveChat) leadScore += 10;\nif (websiteInfo.performance.imageCount > 15) leadScore += 10;\n\nreturn {\n  recommendations: recommendations,\n  benefits: benefits,\n  issues: issues,\n  priority_issues: issues.slice(0, 3),\n  lead_score: leadScore,\n  total_recommendations: recommendations.length\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        240
+      ],
+      "id": "ba70e041-c00f-41c4-a5fb-5991d59cef3c",
+      "name": "Generate Recommendations"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.website_url }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "options": {
+          "allowUnauthorizedCerts": true,
+          "redirect": {
+            "redirect": {}
+          },
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "responseFormat": "text"
+            }
+          },
+          "timeout": 30000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        660,
+        0
+      ],
+      "id": "b1caf29f-7a77-48cb-9f1d-d99a097e9e2f",
+      "name": "Google Sheets Trigger2"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Process all items instead of just the first one\nconst results = [];\n\n// Loop through all input items\nfor (let i = 0; i < $input.all().length; i++) {\n  // Get the AI-generated email from Gemini for current item\n  const geminiResponse = $input.all()[i].json.candidates[0].content.parts[0].text;\n  \n  // Get data from previous nodes for current item\n  const filterData = $('Filter').all()[i].json;\n  const recommendationsData = $('Generate Recommendations').all()[i].json;\n  \n  const websiteUrl = filterData.website_url;\n  const businessEmail = filterData.business_email;\n  const businessName = filterData.business_name || 'Your Business';\n  const leadScore = recommendationsData.lead_score;\n  \n  // Create email subject\n  const subject = `Website Upgrade Proposal for ${businessName} - Boost Your Online Performance`;\n  \n  // Clean the Gemini response (remove any subject lines if present)\n  let cleanedResponse = geminiResponse;\n  // Remove subject line if Gemini included it\n  cleanedResponse = cleanedResponse.replace(/Subject:.*?\\n/gi, '');\n  cleanedResponse = cleanedResponse.replace(/^.*Website Upgrade Proposal.*?\\n/gi, '');\n  cleanedResponse = cleanedResponse.trim();\n  \n  // YOUR PERSONAL DETAILS\n  const yourName = \"Anish Jaiswal\";\n  const yourCompany = \"Anish Devs\";\n  const yourPhone = \"+91-7679447605\";\n  const yourEmail = \"itsanish.devs@gmail.com\";\n  \n  // Create HTML formatted email body\n  const htmlBody = `\n<div style=\"font-family: Arial, sans-serif; line-height: 1.6; color: #333;\">\n  ${cleanedResponse.replace(/\\n/g, '<br><br>')}\n  \n  <hr style=\"margin: 30px 0; border: none; border-top: 1px solid #ddd;\">\n  \n  <h3 style=\"color: #2c5aa0;\">Quick Website Analysis Summary</h3>\n  <ul style=\"background: #f8f9fa; padding: 15px; border-left: 4px solid #2c5aa0;\">\n    <li><strong>Website:</strong> <a href=\"${websiteUrl}\" target=\"_blank\">${websiteUrl}</a></li>\n    <li><strong>Analysis Date:</strong> ${new Date().toLocaleDateString()}</li>\n    <li><strong>Improvement Score:</strong> ${leadScore}/100</li>\n  </ul>\n  \n  <h3 style=\"color: #2c5aa0;\">Next Steps</h3>\n  <ol style=\"background: #fff3cd; padding: 15px; border-left: 4px solid #ffc107;\">\n    <li><strong>FREE 15-minute consultation call</strong></li>\n    <li><strong>Detailed website audit report</strong></li>\n    <li><strong>Custom upgrade proposal with timeline and pricing</strong></li>\n  </ol>\n  \n  <div style=\"margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 5px;\">\n    <p><strong>Best regards,</strong></p>\n    <p><strong>${yourName}</strong><br>\n    ${yourCompany}<br>\n    📞 ${yourPhone}<br>\n    ✉️ ${yourEmail}</p>\n    \n    <p style=\"color: #666; font-style: italic;\">\n      <strong>P.S.</strong> This analysis was generated based on your website's current state. \n      Reply to this email or call us to discuss how we can help improve your online presence!\n    </p>\n  </div>\n  \n  <hr style=\"margin: 30px 0; border: none; border-top: 1px solid #ddd;\">\n  \n  <p style=\"font-size: 12px; color: #888;\">\n    If you're not interested in website services, please reply with \"UNSUBSCRIBE\" and we won't contact you again.\n  </p>\n</div>`;\n\n  // Create plain text version (backup)\n  const textBody = cleanedResponse + `\n\n---\nQuick Website Analysis Summary:\n- Website: ${websiteUrl}\n- Analysis Date: ${new Date().toLocaleDateString()}\n- Improvement Score: ${leadScore}/100\n\nNext Steps:\n1. FREE 15-minute consultation call\n2. Detailed website audit report\n3. Custom upgrade proposal\n\nBest regards,\n${yourName}\n${yourCompany}\n📞 ${yourPhone}\n✉️ ${yourEmail}\n\nP.S. Reply to discuss how we can boost your online performance!\n\n---\nIf you're not interested in making your website up to the mark, please reply with \"UNSUBSCRIBE\" and we won't contact you again.`;\n\n  // Add formatted email data to results array\n  results.push({\n    json: {\n      email_data: {\n        to: businessEmail,\n        subject: subject,\n        html_body: htmlBody,\n        text_body: textBody,\n        business_name: businessName,\n        website_url: websiteUrl,\n        lead_score: leadScore\n      }\n    }\n  });\n}\n\n// Return all formatted email data\nreturn results;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        240
+      ],
+      "id": "bf48803f-15b2-4207-8f66-852077b24d22",
+      "name": "Format Email Content"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.email_data.to }}",
+        "subject": "={{ $json.email_data.subject }}",
+        "message": "={{ $json.email_data.html_body }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        660,
+        240
+      ],
+      "id": "41a41240-fa5f-4b7b-8c39-208b759085b2",
+      "name": "Send Email",
+      "webhookId": "d46499df-2e3e-4e5d-8b6f-f2b900aa61af",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Njt1v5ZQm462vJto",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a1c3fe2a-eae4-4422-8383-2aa771019184",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "Pending",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "413dbac5-6a97-47dd-a120-ce688ffcd907",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1h8mdl4bYUv4XmndVSdnM8d_IljHNB0titYxYLB_eIWY",
+          "mode": "list",
+          "cachedResultName": "Raw Data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1h8mdl4bYUv4XmndVSdnM8d_IljHNB0titYxYLB_eIWY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1h8mdl4bYUv4XmndVSdnM8d_IljHNB0titYxYLB_eIWY/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "status": "={{ $json.labelIds && $json.labelIds.includes(\"SENT\") ? \"Sent\" : \"Failed\" }}",
+            "sent_date": "={{ $json.labelIds && $json.labelIds.includes(\"SENT\") ? new Date().toISOString().split('T')[0] : \"\" }}",
+            "error_message": "={{ $json.labelIds && $json.labelIds.includes(\"SENT\") ? \"No error\" : \"Email sending failed\" }}",
+            "website_url": "={{ $('Filter').item.json.website_url }}"
+          },
+          "matchingColumns": [
+            "website_url"
+          ],
+          "schema": [
+            {
+              "id": "website_url",
+              "displayName": "website_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "business_email",
+              "displayName": "business_email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "business_name",
+              "displayName": "business_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "sent_date",
+              "displayName": "sent_date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email_subject",
+              "displayName": "email_subject",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "key_recommendations",
+              "displayName": "key_recommendations",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "lead_score",
+              "displayName": "lead_score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "error_message",
+              "displayName": "error_message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email_body",
+              "displayName": "email_body",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        880,
+        240
+      ],
+      "id": "ceb3c5e8-c9dc-4cf8-aeb7-169123afbcfd",
+      "name": "Update row in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "qWUho5HjIz9We80a",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets Trigger2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Website Analysis": {
+      "main": [
+        [
+          {
+            "node": "Generate Recommendations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Recommendations": {
+      "main": [
+        [
+          {
+            "node": "Gemini Email Genetation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets Trigger2": {
+      "main": [
+        [
+          {
+            "node": "Website Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini Email Genetation": {
+      "main": [
+        [
+          {
+            "node": "Format Email Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Email Content": {
+      "main": [
+        [
+          {
+            "node": "Send Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "54b224cd-e818-489f-a2a7-f6c15380a967",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a8f42d3d4c8e182e8a891f860084811e127bcbb3c39c24165e0d1f286ce2aab2"
+  },
+  "id": "V7rPok1W60kCRJD4",
+  "tags": []
+}
