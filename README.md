@@ -34,12 +34,12 @@ Required columns:
 - `lead_score` - Analysis score (0-100)
 
 ### 3. Workflow Configuration
-- **Sheet ID**: `1h8mdl4bYUv4XmndVSdnM8d_IljHNB0titYxYLB_eIWY`
+- **Sheet ID**: `1h8mdl4bYUv4XmndVSdnM8d_IljxxxxxxxxxxYLB_eIWY`
 - **Trigger Time**: Daily at 4 PM
 - **Personal Details** (update in "Format Email Content" node):
   - Name: Anish Jaiswal
   - Company: Anish Devs
-  - Phone: +91-7679447605
+  - Phone: +91-XXXXXX7605
   - Email: itsanish.devs@gmail.com
 
 ## How It Works
